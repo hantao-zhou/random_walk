@@ -10,6 +10,16 @@ npm run build:cpp
 
 This uses the Emscripten toolchain (`em++`) to compile the C++ sources under `cpp/` to WebAssembly. The generated files are output into the `web/` directory.
 
+Noted you should install emsdk and initialise it in advance
+
+```bash
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk
+./emsdk install latest
+./emsdk activate latest
+source "emsdk_env.sh"
+```
+
 ## Running locally
 
 ```bash
