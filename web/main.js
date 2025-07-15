@@ -1,7 +1,8 @@
-import init, { random_walk, erw_walk } from './pkg/walk_wasm.js';
+import Module from './walk.js';
 
 async function run() {
-  await init();
+  const wasm = await Module();
+  const { random_walk, erw_walk } = wasm;
   const canvas = document.getElementById('view');
   const ctx = canvas.getContext('2d');
   canvas.width = canvas.clientWidth;

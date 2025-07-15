@@ -2,8 +2,8 @@
   "name": "random-walk-web",
   "version": "0.1.0",
   "scripts": {
-    "build:wasm": "cd wasm && wasm-pack build --target web --out-dir ../web/pkg",
-    "start": "npm run build:wasm && npx http-server web"
+    "build:cpp": "em++ cpp/walk.cpp -O2 --bind -s MODULARIZE=1 -s EXPORT_ES6=1 -s ENVIRONMENT=web -o web/walk.js",
+    "start": "npm run build:cpp && npx http-server web"
   },
   "devDependencies": {
     "http-server": "^14"
