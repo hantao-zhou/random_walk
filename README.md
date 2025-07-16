@@ -7,11 +7,13 @@ WebAssembly toolchain.
 ## Running locally
 
 ```bash
+npm install
 npm start
 ```
 
-This command will serve the `web/` folder at `http://localhost:8080` using
-`http-server`.
+These commands install the dependencies and then serve the `web/` folder at
+`http://localhost:8080` using `http-server`. Opening `index.html` directly will
+not load the ES module scripts correctly.
 
 ## Features
 

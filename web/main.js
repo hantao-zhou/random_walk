@@ -1,11 +1,18 @@
 import { randomWalk, edgeReinforcedWalk } from './sim.js';
 
-function run() {
+function init() {
   const canvas = document.getElementById('view');
   const ctx = canvas.getContext('2d');
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
+
+  const resize = () => {
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+  };
+
+  window.addEventListener('resize', resize);
+
   document.getElementById('run').onclick = () => {
+    resize();
     const steps = parseInt(document.getElementById('steps').value, 10);
     const type = document.getElementById('type').value;
     let result;
@@ -34,4 +41,4 @@ function run() {
   };
 }
 
-run();
+window.addEventListener('DOMContentLoaded', init);
