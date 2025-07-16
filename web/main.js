@@ -1,8 +1,6 @@
-import Module from './walk.js';
+import { randomWalk, edgeReinforcedWalk } from './sim.js';
 
-async function run() {
-  const wasm = await Module();
-  const { random_walk, erw_walk } = wasm;
+function run() {
   const canvas = document.getElementById('view');
   const ctx = canvas.getContext('2d');
   canvas.width = canvas.clientWidth;
@@ -15,9 +13,9 @@ async function run() {
       const strength = parseFloat(document.getElementById('strength').value);
       const delay = parseInt(document.getElementById('delay').value, 10);
       const memory = parseInt(document.getElementById('memory').value, 10);
-      result = erw_walk(steps, strength, delay, memory);
+      result = edgeReinforcedWalk(steps, strength, delay, memory);
     } else {
-      result = random_walk(steps);
+      result = randomWalk(steps);
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
