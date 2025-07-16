@@ -19,3 +19,4 @@ not load the ES module scripts correctly.
 
 - 2D random walk visualisation using HTML canvas
 - Edge reinforced random walk simulator with configurable parameters
+- Run multiple walks at once, each drawn with a unique colour
