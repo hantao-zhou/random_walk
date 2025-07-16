@@ -2,8 +2,7 @@
   "name": "random-walk-web",
   "version": "0.1.0",
   "scripts": {
-    "build:cpp": "em++ cpp/walk.cpp -O2 --bind -s MODULARIZE=1 -s EXPORT_ES6=1 -s ENVIRONMENT=web -o web/walk.js",
-    "start": "npm run build:cpp && npx http-server web"
+    "start": "npx http-server web"
   },
   "devDependencies": {
     "http-server": "^14"
