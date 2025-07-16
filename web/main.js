@@ -27,12 +27,12 @@ function init() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const scale = 5;
+    const scale = 10;
     let i = 1;
     const drawStep = () => {
       if (i >= result.x.length) return;
 
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.02)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.beginPath();
