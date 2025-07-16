@@ -24,20 +24,32 @@ function init() {
     } else {
       result = randomWalk(steps);
     }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.beginPath();
+
     const scale = 5;
-    for (let i = 0; i < result.x.length; i++) {
-      const x = canvas.width / 2 + result.x[i] * scale;
-      const y = canvas.height / 2 + result.y[i] * scale;
-      if (i === 0) {
-        ctx.moveTo(x, y);
-      } else {
-        ctx.lineTo(x, y);
-      }
-    }
-    ctx.strokeStyle = 'lime';
-    ctx.stroke();
+    let i = 1;
+    const drawStep = () => {
+      if (i >= result.x.length) return;
+
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.beginPath();
+      const x1 = canvas.width / 2 + result.x[i - 1] * scale;
+      const y1 = canvas.height / 2 + result.y[i - 1] * scale;
+      const x2 = canvas.width / 2 + result.x[i] * scale;
+      const y2 = canvas.height / 2 + result.y[i] * scale;
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.strokeStyle = 'lime';
+      ctx.stroke();
+
+      i += 1;
+      requestAnimationFrame(drawStep);
+    };
+
+    requestAnimationFrame(drawStep);
   };
 }
 
