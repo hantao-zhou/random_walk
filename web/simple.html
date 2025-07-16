@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Simple Random Walk</title>
+<style>
+  body { margin:0; background:#111; color:#eee; font-family:sans-serif; }
+  canvas { display:block; width:100vw; height:100vh; }
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+const steps = 1000;
+let x = canvas.width/2;
+let y = canvas.height/2;
+ctx.beginPath();
+ctx.moveTo(x,y);
+for(let i=0;i<steps;i++){
+  const dir = Math.floor(Math.random()*4);
+  switch(dir){
+    case 0: x+=5; break;
+    case 1: x-=5; break;
+    case 2: y+=5; break;
+    default: y-=5; break;
+  }
+  ctx.lineTo(x,y);
+}
+ctx.strokeStyle='lime';
+ctx.stroke();
+</script>
+</body>
+</html>
